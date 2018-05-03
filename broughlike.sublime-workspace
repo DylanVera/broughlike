@@ -1,0 +1,764 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"enemies",
+				"enemiesKilled"
+			],
+			[
+				"etL",
+				"love.graphics.getLineWidth"
+			],
+			[
+				"VIRTUAL",
+				"VIRTUAL_WIDTH"
+			],
+			[
+				"newFont",
+				"love.graphics.newFont"
+			],
+			[
+				"recta",
+				"love.graphics.rectangle"
+			],
+			[
+				"setLine",
+				"love.graphics.setLineWidth"
+			],
+			[
+				"window",
+				"love.window.getWidth"
+			],
+			[
+				"dead",
+				"dead_particles"
+			],
+			[
+				"vec",
+				"vertical"
+			],
+			[
+				"chekc",
+				"checkSum"
+			],
+			[
+				"KC_LC",
+				"KC_LCTL"
+			],
+			[
+				"B",
+				"BOARD_HEIGHT"
+			],
+			[
+				"CTL",
+				"CTL_LCBR"
+			],
+			[
+				"spac",
+				"space_cadet_timer"
+			],
+			[
+				"cade",
+				"space_cadet_timer"
+			],
+			[
+				"_",
+				"_______"
+			],
+			[
+				"TD_",
+				"TD_DOWN_RBRC"
+			],
+			[
+				"TD",
+				"TD_ENTER_RCP"
+			],
+			[
+				"L",
+				"LOWER"
+			],
+			[
+				"EXT",
+				"EXT_GAM"
+			],
+			[
+				"Bitma",
+				"BitmapMemorySize"
+			],
+			[
+				"Bit",
+				"BitmapMemory"
+			],
+			[
+				"Bitmap",
+				"BitmapInfo"
+			],
+			[
+				"Bitm",
+				"BitmapMemory"
+			],
+			[
+				"Bitp",
+				"BitmapInfo"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tinyxcom.sublime-project",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/Love2D.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Lua/Lua.sublime-build",
+					""
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					""
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Love2D"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: File"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: Project"
+				],
+				[
+					"Packages/SublimeLove/Love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/django.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Love2D.sublime-build",
+					""
+				],
+				[
+					"Packages/User/win.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/Love2D.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Lua/Lua.sublime-build",
+					""
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					""
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"Love2D"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: File"
+				],
+				[
+					"Packages/Lua Love/LuaLove.sublime-build",
+					"ldoc: Project"
+				],
+				[
+					"Packages/SublimeLove/Love.sublime-build",
+					""
+				],
+				[
+					"Packages/User/django.sublime-build",
+					""
+				],
+				[
+					"Packages/User/win.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Lua Love/LuaLove.sublime-build",
+				"Love2D"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/django.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Love2D.sublime-build",
+					""
+				],
+				[
+					"Packages/User/win.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/Love2D.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "theem",
+		"selected_items":
+		[
+			[
+				"theem",
+				"UI: Select Color Scheme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"commit onl",
+				"Git: Quick Commit (repo, only already added files)"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"insal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"love",
+				"Build With: LuaLove - Love2D"
+			],
+			[
+				"pico",
+				"PICO-8: Run Cartridge"
+			],
+			[
+				"run",
+				"PICO-8: Run Cartridge"
+			],
+			[
+				"RUN",
+				"PICO-8: Run Cartridge"
+			],
+			[
+				"pico 8 ",
+				"PICO-8: Run Cartridge"
+			],
+			[
+				"the",
+				"UI: Select Theme"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"api",
+				"PICO-8: Browse API Reference"
+			],
+			[
+				"",
+				"PICO-8: Browse API Reference"
+			],
+			[
+				"c#",
+				"Set Syntax: C#"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"python",
+				"Set Syntax: Python3"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 120.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/dilen/code/Projects/broughlike",
+		"/C/Users/dilen/code/Projects/broughlike/src"
+	],
+	"file_history":
+	[
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/commands/move_command.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/tile_defs.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/tile.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/states/target_state.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/states/unit_state.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/actionbar.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/constants.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/dependencies.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/entity.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/states/game/menu_state.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/todo.txt",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/GameObject.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/Hitbox.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/Player.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/entity_defs.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/game_objects.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/Dependencies.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/constants.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/states/game/PlayState.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/states/entity/player/PlayerWalkState.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/main.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/world/Room.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/ability_defs.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/entity_defs.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/object_defs.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/utils/utils.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/board.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/states/game/play_state.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/main.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/states/game/StartState.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/world/Dungeon.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/world/Doorway.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/states/entity/EntityWalkState.lua",
+		"/C/Users/dilen/Downloads/900_tiny_squares/main.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/states/BaseState.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/states/entity/EntityIdleState.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/Entity.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/animation.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/ability.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/cursor.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/utils/state_stack.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/states/base_state.lua",
+		"/C/Users/dilen/Downloads/love2d-wars-master/love2d-wars-master/entities/units/unit.lua",
+		"/C/Users/dilen/OneDrive/Documents/My Games/Into The Breach/profile_Alpha/profile.lua",
+		"/C/Users/dilen/Downloads/love2d-wars-master/love2d-wars-master/entities/base.lua",
+		"/C/Users/dilen/Downloads/love2d-wars-master/love2d-wars-master/entities/cursor.lua",
+		"/C/Users/dilen/Downloads/love2d-wars-master/love2d-wars-master/entities/tiles/attack.lua",
+		"/C/Users/dilen/Downloads/love2d-wars-master/love2d-wars-master/board/units.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/global.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/game.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/weapons_base.lua",
+		"/C/Users/dilen/Downloads/love2d-wars-master/love2d-wars-master/board/actions.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/game_object.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/states/play_state.lua",
+		"/C/Users/dilen/Downloads/BabaIsYou/syntax.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/StateMachine.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/Util.lua",
+		"/C/Users/dilen/Downloads/zelda-master/zelda-master/src/states/entity/player/PlayerIdleState.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/weapons_prime.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/states/menu_state.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/libs/lue.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/README.md",
+		"/C/Users/dilen/code/Projects/LoveTilemap/.gitignore",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/utils/game_object.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/libs/inspect.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/utils/queue.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/pathfinding.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/libs/hump/vector.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/src/libs/lume.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/events.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/scripts.lua",
+		"/C/Users/dilen/AppData/Roaming/Sublime Text 3/Packages/User/Love2D.sublime-build",
+		"/C/Users/dilen/AppData/Roaming/Sublime Text 3/Packages/Lua Love/LuaLove.sublime-build",
+		"/C/Users/dilen/code/Projects/LoveTilemap/commands/move_command.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/board.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/commands/command.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/entity_defs.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/entity.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/actionbar.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/states/play_state.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/dependencies.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/constants.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/utils/queue.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/tile.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/utils/state_machine.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/libs/state_machine.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/libs/stateMachine.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/playState.lua",
+		"/C/Users/dilen/Downloads/angrybirds-master/angrybirds-master/static/main.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/utils/push.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/utils/flux.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/utils/tick.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/hump/player.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/lume.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/suit/button.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/utils.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/flux.lua",
+		"/C/Users/dilen/code/Projects/LoveTilemap/shack.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/weapon_texts.lua",
+		"/C/Users/dilen/Downloads/sim/abilities/moveBody.lua",
+		"/C/Users/dilen/AppData/Roaming/pico-8/carts/tiles/tiles.p8",
+		"/C/Users/dilen/Downloads/runny (comments).p8",
+		"/C/Users/dilen/AppData/Roaming/pico-8/carts/slimey.p8",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/pawns.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/pilots.lua",
+		"/C/Users/dilen/Downloads/client/states/state-game.lua",
+		"/C/Users/dilen/Downloads/sim/engine.lua",
+		"/C/Users/dilen/Downloads/client/gameplay/boardrig.lua",
+		"/C/Users/dilen/Downloads/sim/pcplayer.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/weapons_brute.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/spawner_backend.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/spawner.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/islands.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/structures.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/structures_passive.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/weapons_experiment.lua",
+		"/C/Users/dilen/OneDrive/Documents/My Games/Into The Breach/profile_Beta/profile.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/animations.lua",
+		"/C/Program Files (x86)/Steam/steamapps/common/Into the Breach/scripts/squad.lua",
+		"/C/Users/dilen/AppData/Roaming/Sublime Text 3/Packages/PICO-8/PICO-8.sublime-settings",
+		"/C/Users/dilen/Downloads/MattThorson-monocle-engine-57dfb3ad160f/MattThorson-monocle-engine-57dfb3ad160f/Monocle/Monocle.csproj",
+		"/C/Users/dilen/code/Projects/XNA_BigBoys/XNA_BigBoys/XNA_BigBoys.csproj",
+		"/C/GOG Games/FTL - Advanced Edition/settings.ini",
+		"/C/Users/dilen/FeedEm/bbTODO",
+		"/C/Users/dilen/code/Projects/qmk-qmk_firmware-0.5.150-6-gd069a42/qmk-qmk_firmware-d069a42/keyboards/planck/keymaps/ded/keymap.c",
+		"/C/Users/dilen/code/qmk-qmk_firmware-0.5.150-6-gd069a42/qmk-qmk_firmware-d069a42/keyboards/planck/keymaps/ded/keymap.c",
+		"/C/Users/dilen/code/TilemapGL/TilemapGL/levels/one.lvl",
+		"/C/Users/dilen/code/TilemapGL/TilemapGL/shaders/sprite.frag"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 172.0,
+		"where_history":
+		[
+			"C:\\users\\dilen\\downloads\\zelda-master\\zelda-master\\src",
+			"C:\\Users\\dilen\\code\\Projects\\LoveTilemap"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"onCollide",
+			"print",
+			"pop",
+			"dead",
+			"remove",
+			"dead",
+			"offset",
+			"flipOffset",
+			"getrandomname",
+			"player",
+			"getPawn",
+			"getEntity",
+			"toWorldPos",
+			"isValid",
+			"path",
+			"ptah",
+			"print",
+			"Vector.new",
+			"vector",
+			"getdirection",
+			"Board:",
+			"print",
+			"()\n",
+			"self.tileSize",
+			"easing",
+			"cellSize",
+			"color",
+			"end",
+			"getdirection",
+			"make_tit",
+			"smoke",
+			"board",
+			"team_enemy",
+			"game.enemies",
+			"enemylist",
+			"grapple",
+			"stpickup",
+			"pickupcoroutine",
+			"callback",
+			"movex",
+			"dashbegin",
+			"dashupdate",
+			"startdash",
+			"dash",
+			"pickup",
+			"sprite.flip",
+			"sprite.sca",
+			"flip",
+			"holdable",
+			"holding",
+			"input",
+			"gravity",
+			"anima",
+			"player",
+			"player.x",
+			"player",
+			"move",
+			"player",
+			"updategame",
+			"_update",
+			"update",
+			"make_promise",
+			"promise",
+			"kill_player",
+			"prin",
+			"print",
+			"x_max",
+			"player",
+			"draw",
+			"tile",
+			"this.tile",
+			"load_room",
+			"flag_at",
+			"input",
+			"add(dead",
+			"dead",
+			"types",
+			"obj.type",
+			"player",
+			"init_object",
+			"snow",
+			"particles",
+			"shoot_dir",
+			"player",
+			"tile",
+			"player",
+			"normalize",
+			"normalizevector",
+			"cost",
+			"gjef"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"healer",
+			"entityAt",
+			"isInBounds",
+			"Vector",
+			"TILE_SIZE",
+			"self.tileSize"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tinyxcom.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_savvy.repo_path": "C:\\Users\\dilen\\code\\Projects\\broughlike",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 60.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 153.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 126.0
+	},
+	"pinned_build_system": "",
+	"project": "broughlike.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 186.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
