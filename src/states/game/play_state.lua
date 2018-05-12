@@ -9,7 +9,7 @@ function PlayState:enter()
   	-- healer:changeAnimation("idle")
   	bigboy = Entity(ENTITY_DEFS['bigboy'], Vector(2,2))
   	bigboy:changeAnimation("idle")
-    enemy = Entity(ENTITY_DEFS['enemy'], Vector(8,8))
+    enemy = Entity(ENTITY_DEFS['enemy'], Vector(8,7))
     enemy2 = Entity(ENTITY_DEFS['enemy'], Vector(4,4))
     enemy:changeAnimation("idle")
     enemy2:changeAnimation("idle")
@@ -38,6 +38,7 @@ function PlayState:enter()
     allies = {bigboy}--, healer}
     enemies = {enemy, enemy2}
     entities = {allies, enemies}
+
     enemiesKilled = 0
 end
 
@@ -48,11 +49,11 @@ function PlayState:draw()
 	push:start()
 	board:draw()
 
-	--board is one room, what
+	--draw static props before entities
 	for i, team in ipairs(entities) do
 		for j, unit in ipairs(team) do
 			if unit.alive then
-				unit:render()
+				unit:draw()
 			end
 		end
 	end
@@ -82,7 +83,7 @@ function PlayState:update(dt)
     		end
 		end
 	end
-   
+    
     if suit.Button("Clear", TILE_SIZE, TILE_SIZE, TILE_SIZE * 4, TILE_SIZE).hit then
     	board:clear()
     end
@@ -90,8 +91,13 @@ function PlayState:update(dt)
     if suit.Button("End Turn", TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 4, TILE_SIZE).hit then
     	self:endTurn()
     end
-end
 
+    if suit.Button("got it", TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 4, TILE_SIZE).hit then
+    	--die
+    end
+end
+ 
+--make sure that we're not eating input
 function PlayState:keypressed(key)
 	if key == "w" or key == "up" then
 		bigboy:move(VEC_UP)
@@ -123,28 +129,24 @@ function PlayState:keypressed(key)
 end
 
 function PlayState:mousepressed(x, y, button, istouch)
-	local nx, ny = push:toGame(x,y)
+	local nx, ny = push:toGame(x,y)	
 	local tile = board:getTile(board:toTilePos(Vector(nx, ny)))
 	-- print(board:euclidean(healer.tilePos, tile.tilePos))
 	if tile ~= nil then
-		if button == 1 then
-			cursor.tilePos = tile.tilePos
-			cursor.position = board:toWorldPos(cursor.tilePos)
-			if tile:getEntity() ~= nil then
-				UnitState.unit = tile:getEntity()
-				gameState.push(UnitState)
-			end
-		end
+		--  
 		if button == 2 then
-			tile = Tile(TILE_TYPES["spikeTrap"], Vector(tile.tilePos.x, tile.tilePos.y))
-			board.tiles[tile.tilePos.y][tile.tilePos.x] = tile
+			-- tile = Tile(TILE_TYPES["spikeTrap"], Vector(tile.tilePos.x, tile.tilePos.y))
+			-- board.tiles[tile.tilePos.y][tile.tilePos.x] = tile
+			local e = Entity(ENTITY_DEFS['enemy'], Vector(tile.tilePos.x, tile.tilePos.y))
+			e:changeAnimation("idle")
+			table.insert(entities[ENEMY_TEAM], e)
 		end
 	end
 end
 
 function PlayState:processAI() 
   --local command = actors[_currentActor].getAction();
-
+  --whatever you neeed to do I really don't care
   --// Don't advance past the actor if it didn't take a turn. 
   --if action == nil then return nil end
 

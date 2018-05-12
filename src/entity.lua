@@ -38,10 +38,11 @@ Entity = class{
 		self.alive = true
 		self.stomach = {}
 		
-		flux.to(self.position, 0.75, {x = self.position.x, y = (self.tilePos.y-1) * TILE_SIZE + MAP_RENDER_OFFSET_Y}):ease("backout"):delay(math.random()/(self.tilePos.y+1))
+		self.moving = true
+		flux.to(self.position, 0.75, {x = self.position.x, y = (self.tilePos.y-1) * TILE_SIZE + MAP_RENDER_OFFSET_Y}):ease("backout"):delay(math.random()/(self.tilePos.y+1)):oncomplete(function() self.moving = false end)
 		board.tiles[self.tilePos.y][self.tilePos.x].entity = self
-		board.tiles[self.tilePos.y][self.tilePos.x].baseColor = self.color
-		board.tiles[self.tilePos.y][self.tilePos.x].color = board.tiles[self.tilePos.y][self.tilePos.x].baseColor
+		-- board.tiles[self.tilePos.y][self.tilePos.x].baseColor = self.color
+		board.tiles[self.tilePos.y][self.tilePos.x].color = self.color--board.tiles[self.tilePos.y][self.tilePos.x].baseColor
 	end
 }
 
@@ -92,15 +93,12 @@ function Entity:changeAnimation(name)
     self.currentAnimation = self.animations[name]
 end
 
-function Entity:draw()
-	love.graphics.setColor(self.color)
-	love.graphics.rectangle("fill", self.position.x + self.offset.x, self.position.y + self.offset.y, self.width, self.height)
-	love.graphics.setColor(0,0,0)
-	love.graphics.setLineWidth(self.width * 0.1)
-	love.graphics.rectangle("line", self.position.x + self.offset.x, self.position.y + self.offset.y, self.width, self.height)
-end
+-- function Entity:draw()
+-- 	love.graphics.setColor(self.color)
+-- 	love.graphics.rectangle("fill", self.position.x, self.position.y, TILE_SIZE, TILE_SIZE)
+-- end
 
-function Entity:render()
+function Entity:draw()
 	local anim = self.currentAnimation
 	local scaledX, scaledY, scaledW, scaledH = gFrames[anim.texture][anim:getCurrentFrame()]:getViewport() --why am i doing this every frame...
 	scaledW = self.width/scaledW
@@ -110,6 +108,10 @@ function Entity:render()
 		scaledW = -scaledW
 	end
 
+	-- love.graphics.setColor(self.color)				
+	-- love.graphics.rectangle("fill", self.position.x, self.position.y, TILE_SIZE, TILE_SIZE)
+	-- love.graphics.setColor(0,0,0)				
+	-- love.graphics.rectangle("line", self.position.x, self.position.y, TILE_SIZE, TILE_SIZE)
 	love.graphics.setColor({255, 255, 255}) --or white
     love.graphics.draw(gTextures[anim.texture], gFrames[anim.texture][anim:getCurrentFrame()], self.position.x + self.offset.x , self.position.y + self.offset.y, 0, scaledW, scaledH)
 end
@@ -130,7 +132,7 @@ end
 --this is definitely gonna become a problem some day...
 function Entity:flip()
 	self.facingRight = not self.facingRight
-	if self.facingRight then 
+	if self.facingRight then
 		self.offset.x = self.offset.x + self.flipOffset
 	else
 		self.offset.x = self.offset.x - self.flipOffset
@@ -159,8 +161,8 @@ function Entity:kill()
 		enemiesKilled = enemiesKilled + 1
 	end
 
-	board.tiles[self.tilePos.y][self.tilePos.x].baseColor = {0,0,0}
-	board.tiles[self.tilePos.y][self.tilePos.x].color = {0,0,0}
+	-- board.tiles[self.tilePos.y][self.tilePos.x].baseColor = {0,0,0}
+	-- board.tiles[self.tilePos.y][self.tilePos.x].color = {0,0,0}
 	board.tiles[self.tilePos.y][self.tilePos.x].entity = nil
 end
 
@@ -173,6 +175,7 @@ function Entity:grow(nx, ny)
 		{ 
 			width = self.width * nx,
 			height = self.height * ny
-		})
+		}
+	)
 	:ease("backout")
 end

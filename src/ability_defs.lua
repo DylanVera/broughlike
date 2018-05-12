@@ -83,6 +83,7 @@ ABILITY_DEFS = {
 			print("eating")
 			
 			table.insert(self.actor.stomach, target)
+			board:checkGates(self.actor)
 			--lerp it to the player or something
 			--we can lerp the size and stuff too
 			local size = Vector(target.width, target.height)
@@ -146,7 +147,7 @@ ABILITY_DEFS = {
 			barfee.tilePos = target.tilePos
 
 			local movePos = board:toWorldPos(target.tilePos)
-			
+	
 			--whats happening here?
 			flux.to(
 				barfee.position,
@@ -159,6 +160,7 @@ ABILITY_DEFS = {
 			:oncomplete(function()
 				board.tiles[barfee.tilePos.y][barfee.tilePos.x].entity = barfee;
 				board.tiles[barfee.tilePos.y][barfee.tilePos.x].color = barfee.color;
+				board.tiles[barfee.tilePos.y][barfee.tilePos.x]:onEnter(barfee)
 			end)
 
 			flux.to(
@@ -170,6 +172,8 @@ ABILITY_DEFS = {
 				}
 			)
 			:ease("elasticout")
+
+			board:checkGates(self.actor)
 		end,
 		undo = function(self)
 		end 

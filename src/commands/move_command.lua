@@ -13,8 +13,8 @@ function MoveCommand:execute()
 	local tilePos = board:toTilePos(self.actor.position + (self.dir * TILE_SIZE))
 	if not self.actor.moving then
 		board.tiles[self.oldPos.y][self.oldPos.x].entity = nil
-		board.tiles[self.oldPos.y][self.oldPos.x].baseColor = {0,0,0}
-		board.tiles[self.oldPos.y][self.oldPos.x].color = {0,0,0}
+		-- board.tiles[self.oldPos.y][self.oldPos.x].baseColor = {0,0,0}
+		board.tiles[self.oldPos.y][self.oldPos.x].color = board.tiles[self.oldPos.y][self.oldPos.x].baseColor 
 		board.tiles[self.oldPos.y][self.oldPos.x]:onExit(self.actor)	
 		
 		table.insert(commands, self)
@@ -32,21 +32,22 @@ function MoveCommand:execute()
 				y = self.actor.position.y + self.dir.y * TILE_SIZE
 			})
 			:oncomplete(function() 
-				board:clear()
+				--board:clear()  f f rc
 				self.actor.moving = false 
 				self.actor:changeAnimation("idle")
+				board.tiles[tilePos.y][tilePos.x]:onEnter(self.actor)
 			end)
 		else
 			self.actor.position = self.actor.position + self.dir * TILE_SIZE
 			self.actor.moving = false
 			self.actor:changeAnimation("idle")
-			board:clear()
+			--board:clear()
 		end
-		board.tiles[tilePos.y][tilePos.x]:onEnter(self.actor)
+		
 		board.tiles[tilePos.y][tilePos.x].color = self.actor.color
-		board.tiles[tilePos.y][tilePos.x].baseColor = self.actor.color
+		-- board.tiles[tilePos.y][tilePos.x].baseColor = self.actor.color
 	end
-end
+end 
 
 --todo: take collision logic out if we decide undo is necessary
 function MoveCommand:undo()

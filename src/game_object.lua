@@ -19,7 +19,7 @@ function GameObject:init(def, pos)
     self.moveSpeed = 0
     -- default empty collision callback
     self.pushable = def.pushable
-
+    
     self.onCollide = function() end
     self.moving = false
     board:getTile(self.tilePos).prop = self

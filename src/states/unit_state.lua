@@ -74,7 +74,7 @@ function UnitState:enter()
 end
 
 function UnitState:leave()
-	board:clear()
+	-- board:clear()
 	-- for i, t in ipairs(self.moveRange) do
 	-- 	t.color = t.baseColor
 	-- end	

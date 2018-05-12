@@ -17,5 +17,5 @@ function Cursor:move(dir)
 	if board:isInBounds(self.tilePos + dir) then
 		self.tilePos = self.tilePos + dir
 		self.position = board:toWorldPos(self.tilePos)
-	end
+	end 
 end

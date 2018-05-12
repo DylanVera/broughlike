@@ -141,6 +141,12 @@ ENTITY_DEFS = {
             ABILITY_DEFS["eat"],
             ABILITY_DEFS["barf"]
         },
-        flipOffset = TILE_SIZE * 0.6
+        flipOffset = TILE_SIZE * 0.6,
+        states = {
+            -- ChaseState(),
+            -- PatrolState(),
+            -- AttackState(),
+            -- CastState()
+        }
     }
 }

@@ -15,11 +15,19 @@ function TargetState:draw()
 end	
 
 function TargetState:enter()
-	for i,n in ipairs(self.tiles) do
-		n.color = {255,64,96}
-	end
 	cursor.tilePos = self.tiles[1].tilePos
 	cursor.position = board:toWorldPos(cursor.tilePos)
+
+	for i,n in ipairs(self.tiles) do
+		n.color = {255, 64, 96}
+
+		if self.ability.targetType == UNIT_TARGET or self.ability.targetType == TILE_TARGET then
+			if n:getEntity() ~= nil then
+				cursor.tilePos = n.tilePos
+				cursor.position = board:toWorldPos(cursor.tilePos)
+			end
+		end
+	end
 end
 
 function TargetState:leave()
@@ -46,7 +54,7 @@ function TargetState:keypressed(key)
 		-- entities[currentUnit]:move(VEC_RIGHT)
 	end
 	
-	if key == "x" or key == "space" then
+	if key == "x" or key == "space" or key == "return" then
 		self:checkTarget()
 	end
 

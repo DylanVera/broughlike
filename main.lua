@@ -17,6 +17,7 @@ function love.load()
         highdpi = true,
         canvas = false
     })
+    
     screen:setDimensions(push:getDimensions())
     gStateStack = StateStack()
     -- gStateStack:push(MenuState())
