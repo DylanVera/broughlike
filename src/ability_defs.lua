@@ -117,15 +117,12 @@ ABILITY_DEFS = {
 				for y, row in ipairs(board.tiles) do
 					for x, cell in ipairs(row) do
 						if board:euclidean(self.actor.tilePos, cell.tilePos) <= self.range and 
-							cell ~= board.tiles[self.actor.tilePos.y][self.actor.tilePos.x] and board:isEmpty(cell.tilePos) then
-							table.insert(tiles, cell)
+							cell ~= board.tiles[self.actor.tilePos.y][self.actor.tilePos.x] and board:isEmpty(cell.tilePos) 
+								and board:isReachable(self.actor.tilePos, cell.tilePos) then
+									table.insert(tiles, cell)
 						end
 					end
 				end
-				
-				-- for i, t in ipairs(tiles) do
-				-- 	board:walkPath(self.actor.tilePos, t.tilePos)
-				-- end
 
 				TargetState.tiles = tiles
 				TargetState.ability = self

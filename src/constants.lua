@@ -8,6 +8,8 @@ TILE_SIZE = VIRTUAL_HEIGHT/12
 
 MAX_ACTIONBAR_SIZE = 4
 
+DEBUG = false
+
 -- --
 -- -- map constants
 -- --

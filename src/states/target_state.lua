@@ -18,6 +18,25 @@ function TargetState:draw()
 		love.graphics.setLineWidth(TILE_SIZE * 0.1)
 		love.graphics.rectangle('line', n.position.x, n.position.y, TILE_SIZE, TILE_SIZE)
 	end
+
+	path = board:walkPath(bigboy.tilePos, cursor.tilePos)
+	table.remove(path, 1)
+
+	if DEBUG then
+		for i,p in ipairs(path) do
+			if p.isSolid then
+				love.graphics.setColor({1, 0.25, 0.375, 0.8})
+			else
+				love.graphics.setColor({0.25, 1, 0.375, 0.8})
+			end
+			love.graphics.rectangle('fill', p.position.x, p.position.y, TILE_SIZE, TILE_SIZE)
+			love.graphics.setColor({0,0,0})
+			love.graphics.setLineWidth(TILE_SIZE * 0.1)
+			love.graphics.rectangle('line', p.position.x, p.position.y, TILE_SIZE, TILE_SIZE)
+		end
+	end
+	
+
 	cursor:render()
 
 	push:finish()

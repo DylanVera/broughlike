@@ -12,7 +12,6 @@ Board = class{
 		-- self:loadTestMap()
 		-- self:loadMap("src/mapOne.map")
 		-- self:loadBoard("src/mapTwo.map")
-		self.maps = MAP_DATA
 	end
 }
 
@@ -20,7 +19,6 @@ function Board:draw()
 	for y, row in ipairs(self.tiles) do
 		for x, cell in ipairs(row) do
 			cell:draw()
-			--love.graphics.rectangle('line', self.position.x + (x - 1) * TILE_SIZE, self.position.y + (y - 1) * TILE_SIZE, TILE_SIZE, TILE_SIZE)
 		end
 	end
 end
@@ -28,8 +26,8 @@ end
 function Board:loadLevel(level)
 	if level == 0 then
 		self:loadTestMap()
-	elseif level > 0 and level <= #self.maps then
-		self:loadBoard(self.maps[level])
+	elseif level > 0 and level <= #MAP_DATA then
+		self:loadBoard(MAP_DATA[level])
 	end
 end
 
@@ -83,7 +81,7 @@ function Board:loadEntities()
 	print("figure out loading entities...")
 end
 
---this messes up board/worldpos calculations, apply that offset or something
+--TODO: this messes up board/worldpos calculations
 function Board:centerBoard()
 	local widestRow = 0
 	for y, row in ipairs(self.tiles) do
@@ -325,9 +323,9 @@ function Board:getSquare(center, size)
 end
 
 --grid walk to check for obstacles in path
-function Board:walkPath(p0, p1)
-    dx = p1.x - p0.x
-    dy = p1.y - p0.y
+function Board:walkPath(p1, p2)
+    dx = p2.x - p1.x
+    dy = p2.y - p1.y
     nx = math.abs(dx)
     ny = math.abs(dy)
 
@@ -343,10 +341,11 @@ function Board:walkPath(p0, p1)
    		sign_y = -1
    	end
 
-    p = Vector(p0.x, p0.y);
-    points = {Vector(p.x, p.y)}
+    p = Vector(p1.x, p1.y);
+    points = {self.tiles[p.y][p.x]}
     local ix = 0
-    for iy = 0, ix < nx or iy < ny do
+    local iy = 0
+     while ix < nx or iy < ny do
         if ((0.5+ix) / nx < (0.5+iy) / ny) then
             p.x = p.x + sign_x
             ix = ix + 1
@@ -354,8 +353,51 @@ function Board:walkPath(p0, p1)
             p.y = p.y + sign_y
             iy = iy + 1
         end
-        table.insert(points, Vector(p.x, p.y));
+
+        if self.tiles[p.y][p.x].isSolid then
+        	break
+        end
+        table.insert(points, self.tiles[p.y][p.x]);
     end
 
     return points
+end
+
+function Board:isReachable(p1, p2)
+	dx = p2.x - p1.x
+    dy = p2.y - p1.y
+    nx = math.abs(dx)
+    ny = math.abs(dy)
+
+    if dx > 0 then
+    	sign_x = 1
+    else
+    	sign_x = -1
+    end
+
+    if dy > 0 then
+    	sign_y = 1
+   	else
+   		sign_y = -1
+   	end
+
+    p = Vector(p1.x, p1.y);
+    points = {self.tiles[p.y][p.x]}
+    local ix = 0
+    local iy = 0
+     while ix < nx or iy < ny do
+        if ((0.5+ix) / nx < (0.5+iy) / ny) then
+            p.x = p.x + sign_x
+            ix = ix + 1
+        else 
+            p.y = p.y + sign_y
+            iy = iy + 1
+        end
+
+        if self.tiles[p.y][p.x].isSolid then
+        	return false
+        end
+    end
+
+    return true
 end
