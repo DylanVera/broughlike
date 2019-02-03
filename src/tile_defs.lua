@@ -12,41 +12,41 @@ TILE_TYPES = {
 		isSolid = false,
 	},
 	["wall"] = {
-		color = {64,64,64},
+		color = {0.5,0.5,0.5},
 		isSolid = true
 	}, 
 	["spikeTrap"] = {
-		color = {96,32,48},
+		color = {0.375, 0.1255, 0.1875},
 		isSolid = false,
 		value = 1,
 		onEnter = function(self, unit)
-			--do a damage
 			print(unit.name)
-			unit:damage(1)
+			unit:damage(self.value)
 		end
 	},
 	["portal"] = {
-		color = {64, 32, 128},
+		color = {0.25, 0.125, 0.5},
 		isSolid = false,
 		connectedPortal = nil,
 		onEnter = function(self, unit)
 			if self.connectedPortal:getEntity() == nil then 
-				unit.tilePos = Vector(self.connectedPortal.tilePos.x, self.connectedPortal.tilePos.y);
-				unit.position = board:toWorldPos(unit.tilePos)
 				self.entity = nil
 				self.connectedPortal.entity = unit
+				unit.tilePos = Vector(self.connectedPortal.tilePos.x, self.connectedPortal.tilePos.y);
+				unit.position = Vector(self.connectedPortal.position.x, self.connectedPortal.position.y)	
+				print("Teleporting "..unit.name.." from ("..self.tilePos.x..","..self.tilePos.y..") to ("..self.connectedPortal.tilePos.x..","..self.connectedPortal.tilePos.y..")")
 			end
 		end
 	},
 	["gate"] = {
-		lockedColor = {64, 32, 32},
-		unlockedColor = {32, 64, 32},
-		color = {64, 32, 32},
+		lockedColor = {0.5, 0.125, 0.125},
+		unlockedColor = {0.125, 0.5, 0.125},
+		color = {0.5, 0.125, 0.125},
 		isSolid = false,
 		goal = 2,
 		onEnter = function(self)
 			if not self.locked then
-				gameState.switch(MenuState)
+				PlayState:nextLevel()
 			end
 		end
 	}

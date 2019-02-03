@@ -9,22 +9,29 @@ end
 
 function TargetState:draw()
 	PlayState:draw()
+	
 	push:start()
+	for i,n in ipairs(self.tiles) do
+		love.graphics.setColor({1, 0.25, 0.375, 0.3})
+		love.graphics.rectangle('fill', n.position.x, n.position.y, TILE_SIZE, TILE_SIZE)
+		love.graphics.setColor({0,0,0})
+		love.graphics.setLineWidth(TILE_SIZE * 0.1)
+		love.graphics.rectangle('line', n.position.x, n.position.y, TILE_SIZE, TILE_SIZE)
+	end
 	cursor:render()
+
 	push:finish()
 end	
 
 function TargetState:enter()
 	cursor.tilePos = self.tiles[1].tilePos
-	cursor.position = board:toWorldPos(cursor.tilePos)
+	cursor.position = self.tiles[1].position
 
 	for i,n in ipairs(self.tiles) do
-		n.color = {255, 64, 96}
-
 		if self.ability.targetType == UNIT_TARGET or self.ability.targetType == TILE_TARGET then
 			if n:getEntity() ~= nil then
 				cursor.tilePos = n.tilePos
-				cursor.position = board:toWorldPos(cursor.tilePos)
+				cursor.position = n.position
 			end
 		end
 	end
@@ -54,7 +61,7 @@ function TargetState:keypressed(key)
 		-- entities[currentUnit]:move(VEC_RIGHT)
 	end
 	
-	if key == "x" or key == "space" or key == "return" then
+	if key == "x" or key == "space" or key == "return" or key == "e" then
 		self:checkTarget()
 	end
 
@@ -63,11 +70,17 @@ function TargetState:keypressed(key)
 	end
 end
 
+function TargetState:keyreleased(key)
+	if key == "2" or key == "space" or key == "return" or key == "e" then
+		self:checkTarget()
+	end
+end
+
 function TargetState:mousepressed(x, y, button, isTouch)
 	local nx, ny = push:toGame(x,y)
 	local tile = board:getTile(board:toTilePos(Vector(nx, ny)))
 	cursor.tilePos = tile.tilePos
-	cursor.position = board:toWorldPos(cursor.tilePos)
+	cursor.position = tile.position
 	
 	if tile ~= nil then
 		if button == 1 then		
@@ -75,6 +88,10 @@ function TargetState:mousepressed(x, y, button, isTouch)
 		end
 	end
 end	
+
+function TargetState:changeTargetingType()
+	
+end
 
 function TargetState:checkTarget()
 	local tile = board:getTile(cursor.tilePos)
@@ -91,7 +108,11 @@ function TargetState:checkTarget()
 					self.ability:execute(tile)
 				end
 			end
+			gameState.pop()
+		else
+			gameState.pop()
 		end
+	else
+		gameState.pop()
 	end
-	gameState.pop()
 end

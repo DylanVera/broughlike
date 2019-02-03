@@ -5,10 +5,14 @@ Board = class{
 		self.tiles = {}
 		self.gates = {}
 
-		self.boardSize = Vector(9, 9)
+		self.boardSize = nil
 		self.position = Vector(MAP_RENDER_OFFSET_X, MAP_RENDER_OFFSET_Y)
-		
-		self:loadTestMap()
+		print("BoardPosition: "..self.position.x..","..self.position.y)
+		print()
+		-- self:loadTestMap()
+		-- self:loadMap("src/mapOne.map")
+		-- self:loadBoard("src/mapTwo.map")
+		self.maps = MAP_DATA
 	end
 }
 
@@ -21,7 +25,81 @@ function Board:draw()
 	end
 end
 
+function Board:loadLevel(level)
+	if level == 0 then
+		self:loadTestMap()
+	elseif level > 0 and level <= #self.maps then
+		self:loadBoard(self.maps[level])
+	end
+end
+
+--index or string path?
+function Board:loadBoard(map)
+	contents, size = love.filesystem.read( map, size )
+	--print(contents)
+
+	local y = 1
+	local xPos = 1
+	for line in love.filesystem.lines(map) do
+		-- if line == "\n" then
+		-- 	board:loadEntities()
+		-- 	break
+		-- else
+			print(line)
+			table.insert(self.tiles, {})
+			--print(line)
+			for x = 1, #line do
+				tileID = line:sub(x,x) + 1
+	    		table.insert(self.tiles[y], Tile(TILE_TYPES[TILE_IDS[tileID]], Vector(x,y)))
+	    		xPos = x
+
+	    		if(tileID == 5) then
+	    			table.insert(self.gates, self.tiles[y][x])
+	    		end
+	    	end
+	    	y = y + 1
+	    -- end
+	end
+	self.boardSize = Vector(xPos,y)
+	print("Loaded "..self.boardSize.x..","..self.boardSize.y.." sized board")
+	
+	-- for y=1, self.boardSize.y do
+	-- 	table.insert(self.tiles, {})
+
+	-- 	for x=1, self.boardSize.x do
+	-- 		if x == 1 or y == 1 or y == self.boardSize.y or x == self.boardSize.x then
+	-- 			self.tiles[y][x] = Tile(TILE_TYPES["wall"], Vector(x,y))
+	-- 		else
+	-- 			self.tiles[y][x] = Tile(TILE_TYPES["blank"], Vector(x,y))
+	-- 		end
+	-- 	end
+	-- end
+	-- self.position = self:centerBoard()
+	-- print("at position of "..self.position.x..", "..self.position.y)
+	-- print(self.tiles[1][1].position)
+end
+
+function Board:loadEntities()
+	print("figure out loading entities...")
+end
+
+--this messes up board/worldpos calculations, apply that offset or something
+function Board:centerBoard()
+	local widestRow = 0
+	for y, row in ipairs(self.tiles) do
+		if #row > widestRow then
+			widestRow = #row
+		end
+	end
+
+	local offsetX = (VIRTUAL_WIDTH - (widestRow * TILE_SIZE)) / 2
+	local offsetY = (VIRTUAL_HEIGHT  - (#self.tiles * TILE_SIZE)) / 2
+	print("board offset of "..offsetX..", "..offsetY)
+	return Vector(offsetX, offsetY)
+end
+
 function Board:loadTestMap()
+	self.boardSize = Vector(9,9)
 	for y=1, self.boardSize.y do
 		table.insert(self.tiles, {})
 
@@ -34,10 +112,12 @@ function Board:loadTestMap()
 		end
 	end
 
-	-- self.tiles[2][3] = Tile(TILE_TYPES["portal"], Vector(3, 2))
-	-- self.tiles[7][7] = Tile(TILE_TYPES["portal"], Vector(7,7))
-	-- self.tiles[7][7].connectedPortal = self.tiles[2][3]
-	-- self.tiles[2][3].connectedPortal = self.tiles[7][7]
+	self:centerBoard()
+	
+	self.tiles[2][3] = Tile(TILE_TYPES["portal"], Vector(3, 2))
+	self.tiles[7][7] = Tile(TILE_TYPES["portal"], Vector(7,7))
+	self.tiles[7][7].connectedPortal = self.tiles[2][3]
+	self.tiles[2][3].connectedPortal = self.tiles[7][7]
 	self.tiles[8][8] = Tile(TILE_TYPES["gate"], Vector(8,8))
 	table.insert(self.gates, self.tiles[8][8])
 end
@@ -78,6 +158,7 @@ function Board:GetProjectileEnd(p1,p2,profile)
 	return target
 end
 
+--these two functions are all fucky when you change map size/move the origin of the board to recenter
 function Board:toWorldPos(tile)
 	return Vector((tile.x-1) * TILE_SIZE + self.position.x, (tile.y-1) * TILE_SIZE + self.position.y)
 end
@@ -85,6 +166,7 @@ end
 function Board:toTilePos(tile)
 	return Vector(math.floor((tile.x - self.position.x)/TILE_SIZE) + 1, math.floor((tile.y - self.position.y)/TILE_SIZE) + 1)
 end
+
 
 function Board:render()
 end
@@ -96,7 +178,10 @@ end
 function Board:isBlocked(target, path)
 end
 
---BFS
+function Board:heuristic(cost)
+end
+
+--djikstra -> A*
 function Board:getSimplePath(p1, p2)
 	local frontier = {}
 	local goal = self:getTile(p2.tilePos)
@@ -154,7 +239,7 @@ end
 --      if neighbor has no move cost OR its move cost > cost of movement
 --        neighbors movement cost = cost of movement
 --        add neighbor to list of tiles whose neighbors you need to check
-function Board:getReachable(point, dist)
+function Board:getReachableTiles(point, dist)
 	local tiles = {}
 	for y, row in ipairs(self.tiles) do
 		for x, tile in ipairs(row) do
@@ -237,4 +322,40 @@ function Board:clearAll()
 end
 
 function Board:getSquare(center, size)
+end
+
+--grid walk to check for obstacles in path
+function Board:walkPath(p0, p1)
+    dx = p1.x - p0.x
+    dy = p1.y - p0.y
+    nx = math.abs(dx)
+    ny = math.abs(dy)
+
+    if dx > 0 then
+    	sign_x = 1
+    else
+    	sign_x = -1
+    end
+
+    if dy > 0 then
+    	sign_y = 1
+   	else
+   		sign_y = -1
+   	end
+
+    p = Vector(p0.x, p0.y);
+    points = {Vector(p.x, p.y)}
+    local ix = 0
+    for iy = 0, ix < nx or iy < ny do
+        if ((0.5+ix) / nx < (0.5+iy) / ny) then
+            p.x = p.x + sign_x
+            ix = ix + 1
+        else 
+            p.y = p.y + sign_y
+            iy = iy + 1
+        end
+        table.insert(points, Vector(p.x, p.y));
+    end
+
+    return points
 end

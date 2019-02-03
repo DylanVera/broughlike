@@ -20,17 +20,6 @@ ABILITY_DEFS = {
 		undo = function()
 		end
 	},
-	["smite"] = {
-		cost = 1,
-		range = 2,
-		value = 2,
-		targetType = UNIT_TARGET,
-		execute = function()
-			print("smite")
-		end,
-		undo = function()
-		end
-	},	
 	["strike"] = {
 		cost = 1,
 		value = 2,
@@ -79,11 +68,15 @@ ABILITY_DEFS = {
 	    	TargetState.ability = self
 	    	gameState.push(TargetState)
 		end,
+		castTarget = function(self, target)
+			self.execute(self, target)
+		end,
 		execute = function(self, target)
-			print("eating")
+			print("eating "..target.name)
 			
 			table.insert(self.actor.stomach, target)
 			board:checkGates(self.actor)
+
 			--lerp it to the player or something
 			--we can lerp the size and stuff too
 			local size = Vector(target.width, target.height)
@@ -129,6 +122,10 @@ ABILITY_DEFS = {
 						end
 					end
 				end
+				
+				-- for i, t in ipairs(tiles) do
+				-- 	board:walkPath(self.actor.tilePos, t.tilePos)
+				-- end
 
 				TargetState.tiles = tiles
 				TargetState.ability = self
@@ -138,15 +135,18 @@ ABILITY_DEFS = {
 			end
 		end,
 		--damage entities in target tile or what?
+		--don't let them barf on someone for now.
 		execute = function(self, target)
-			print("barfing")
+			
 
 			local barfee = table.remove(self.actor.stomach)
+			print("barfing "..barfee.name)
 			barfee.alive = true
 			barfee.position = Vector(self.actor.position.x, self.actor.position.y)
-			barfee.tilePos = target.tilePos
+			barfee.tilePos = Vector(target.tilePos.x, target.tilePos.y)
+			board.tiles[barfee.tilePos.y][barfee.tilePos.x].entity = barfee;
 
-			local movePos = board:toWorldPos(target.tilePos)
+			local movePos = board.tiles[target.tilePos.y][target.tilePos.x].position
 	
 			--whats happening here?
 			flux.to(
@@ -158,8 +158,7 @@ ABILITY_DEFS = {
 				}
 			)
 			:oncomplete(function()
-				board.tiles[barfee.tilePos.y][barfee.tilePos.x].entity = barfee;
-				board.tiles[barfee.tilePos.y][barfee.tilePos.x].color = barfee.color;
+				-- board.tiles[barfee.tilePos.y][barfee.tilePos.x].color = barfee.color;
 				board.tiles[barfee.tilePos.y][barfee.tilePos.x]:onEnter(barfee)
 			end)
 

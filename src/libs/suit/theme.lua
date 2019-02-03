@@ -6,9 +6,9 @@ local theme = {}
 theme.cornerRadius = 4
 
 theme.color = {
-	normal   = {bg = { 66, 66, 66}, fg = {188,188,188}},
-	hovered  = {bg = { 50,153,187}, fg = {255,255,255}},
-	active   = {bg = {255,153,  0}, fg = {225,225,225}}
+	normal   = {bg = { 0.25, 0.25, 0,25}, fg = {0.75, 0.75, 0.75}},
+	hovered  = {bg = { 0.2,0.5,0.75}, fg = {1,1,1}},
+	active   = {bg = {1,0.5,  0}, fg = {1,1,1}}
 }
 
 

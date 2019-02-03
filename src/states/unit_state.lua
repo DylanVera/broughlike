@@ -83,7 +83,7 @@ end
 function UnitState:updateMoveRange()
 	self.moveRange = board:getSimpleReachable(self.unit.tilePos, self.unit.ap)
 	for i, t in ipairs(self.moveRange) do
-		t.color = {64, 196, 128}
+		t.color = {0.25, 0.75, 0.5}
 	end	
 end	
 

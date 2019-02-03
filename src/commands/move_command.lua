@@ -3,18 +3,18 @@ MoveCommand = class{
 	init = function(self, actor, dir, isTeleport)
 		self.dir = dir
 		self.actor = actor
-		self.oldPos = board:toTilePos(actor.position)
+		self.oldPos = actor.tilePos
 		self.isTeleport = isTeleport
 	end
 }
 
 --check for exit/enter callbacks
 function MoveCommand:execute()
-	local tilePos = board:toTilePos(self.actor.position + (self.dir * TILE_SIZE))
+	local tilePos = self.oldPos + self.dir
 	if not self.actor.moving then
 		board.tiles[self.oldPos.y][self.oldPos.x].entity = nil
 		-- board.tiles[self.oldPos.y][self.oldPos.x].baseColor = {0,0,0}
-		board.tiles[self.oldPos.y][self.oldPos.x].color = board.tiles[self.oldPos.y][self.oldPos.x].baseColor 
+		--board.tiles[self.oldPos.y][self.oldPos.x].color = board.tiles[self.oldPos.y][self.oldPos.x].baseColor 
 		board.tiles[self.oldPos.y][self.oldPos.x]:onExit(self.actor)	
 		
 		table.insert(commands, self)
@@ -32,7 +32,7 @@ function MoveCommand:execute()
 				y = self.actor.position.y + self.dir.y * TILE_SIZE
 			})
 			:oncomplete(function() 
-				--board:clear()  f f rc
+				--board:clear()
 				self.actor.moving = false 
 				self.actor:changeAnimation("idle")
 				board.tiles[tilePos.y][tilePos.x]:onEnter(self.actor)
@@ -44,7 +44,7 @@ function MoveCommand:execute()
 			--board:clear()
 		end
 		
-		board.tiles[tilePos.y][tilePos.x].color = self.actor.color
+		-- board.tiles[tilePos.y][tilePos.x].color = self.actor.color
 		-- board.tiles[tilePos.y][tilePos.x].baseColor = self.actor.color
 	end
 end 

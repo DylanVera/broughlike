@@ -1,7 +1,8 @@
 ENTITY_IDS = {
     'healer',
     'tank',
-    'testEnemy'
+    'testEnemy',
+    'smallson'
 }
 
 ENTITY_DEFS = {
@@ -34,7 +35,7 @@ ENTITY_DEFS = {
             -- Ability(ABILITY_DEFS["block"])
         },
         flipOffset = TILE_SIZE * 0.6,
-        color = {64, 48, 128}
+        color = {0.25, 0.15, 0.5}
     },
     ['tank'] = {
         name = 'tank',
@@ -84,23 +85,20 @@ ENTITY_DEFS = {
             ABILITY_DEFS["eat"],
             ABILITY_DEFS["barf"]
         },
+        maxHealth = 3,
         flipOffset = TILE_SIZE * 0.6,
-        color = {128, 32, 96},
+        color = {0.5, 0.125, 0.375},
         team = ALLY_TEAM
     },
-    ['enemy'] = {
-        name = 'enemy',
-        team = ENEMY_TEAM,
+    ['smallson'] = {
+        name = 'smallson',
+        team = ALLY_TEAM,
         size = {
             x = TILE_SIZE * 0.6,
             y = TILE_SIZE * 0.6
         },
-        color = {128, 32, 64},
-        animations = {
-        },
+        color = {0.5, 0.125, 0.25},
         abilities = {
-            ABILITY_DEFS["strike"],
-            ABILITY_DEFS["block"]
         },
         animations = {
             ['idle'] = {
@@ -116,6 +114,7 @@ ENTITY_DEFS = {
             
         },
         flipOffset = TILE_SIZE * 0.6,
+        edible = true
     },
     ['testboy'] = {
         name = "testboy",
@@ -124,7 +123,7 @@ ENTITY_DEFS = {
             x = TILE_SIZE * 0.6,
             y = TILE_SIZE * 0.6
         },
-        color = {32, 96, 128},
+        color = {0.125, 0.375, 0.5},
         animations = {
             ['idle'] = {
                 frames = {1},

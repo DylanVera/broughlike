@@ -13,6 +13,7 @@ Ability = class{
 		self.range = def.range or 1
 		self.lvl = 1
 		self.cast = def.cast or function() end
+		self.castTarget = def.castTarget or function() end
 		self.execute = def.execute or function() end
 		self.undo = def.undo or function() end
 	end

@@ -5,7 +5,7 @@ Tile = class{
 		self.center = (self.tilePos * TILE_SIZE) + Vector(TILE_SIZE/2, TILE_SIZE/2)
 		self.isSolid = type.isSolid or false
 		self.effects = {}
-		self.entity = nil	--queue/stack?
+		self.entity = nil	
 		self.baseColor = type.color
 		self.color = self.baseColor
 
@@ -13,8 +13,9 @@ Tile = class{
 		self.onExit = type.onExit or function() end
 		self.prop = nil
 		self.goal = type.goal or 0
-		self.locked = self.goal > 0
-
+		self.locked = self.goal > 0		
+		self.value = type.value or 0
+		
 		flux.to(self.position, 0.75, {x = self.position.x, y = (self.tilePos.y-1) * TILE_SIZE + MAP_RENDER_OFFSET_Y}):ease("backout"):delay(math.random()/(self.tilePos.y+1))
 	end
 }
@@ -48,7 +49,7 @@ function Tile:draw()
 	love.graphics.setLineWidth(TILE_SIZE * 0.1)
 	love.graphics.rectangle('line', self.position.x, self.position.y, TILE_SIZE, TILE_SIZE)
 
-	if self.goal > 0 then
+	if self.goal > 0 and self.locked then
 		love.graphics.print(self.goal - #bigboy.stomach, self.position.x, self.position.y)
 	end
 end

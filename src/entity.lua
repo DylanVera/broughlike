@@ -30,19 +30,21 @@ Entity = class{
 		self.maxAp = 5
 		self.ap = self.maxAp
 		self.apRegen = 3
-		self.maxHealth = 3
+		self.maxHealth = def.maxHealth or 1
 		self.health = self.maxHealth
 		self.onCollide = function() end
 		self.flipOffset = def.flipOffset or 0
 		self.effects = {}
 		self.alive = true
+		self.edible = def.edible or false
 		self.stomach = {}
 		
+		--drop in
 		self.moving = true
 		flux.to(self.position, 0.75, {x = self.position.x, y = (self.tilePos.y-1) * TILE_SIZE + MAP_RENDER_OFFSET_Y}):ease("backout"):delay(math.random()/(self.tilePos.y+1)):oncomplete(function() self.moving = false end)
 		board.tiles[self.tilePos.y][self.tilePos.x].entity = self
 		-- board.tiles[self.tilePos.y][self.tilePos.x].baseColor = self.color
-		board.tiles[self.tilePos.y][self.tilePos.x].color = self.color--board.tiles[self.tilePos.y][self.tilePos.x].baseColor
+		-- board.tiles[self.tilePos.y][self.tilePos.x].color = self.color--board.tiles[self.tilePos.y][self.tilePos.x].baseColor
 	end
 }
 
@@ -73,6 +75,20 @@ end
 
 function Entity:damage(dmg)
     self.health = self.health - dmg
+    
+    if self.name == "bigboy" then
+		if #self.stomach > 0 then
+	    	print("taking "..dmg.." gut dmg")
+	    	local i = 1
+	    	while i <= #self.stomach do
+	    		print("deleting "..i)
+	    		self.stomach[#self.stomach]:kill()
+	    		table.remove(self.stomach)
+	    	end
+    	end
+    end
+   
+
     if self.health <= 0 then
     	print("you got dead")   
     	self:kill()
@@ -87,6 +103,9 @@ function Entity:heal(hp)
 end
 
 function Entity:processAI(params, dt)
+	--a* for pathfinding
+	--enemies should try to catch lil buds
+	--lil buds should be terrified and run from everything
 end
 
 function Entity:changeAnimation(name)
@@ -120,12 +139,23 @@ end
 function Entity:move(dir)
 	
 	local tilePos = self.tilePos + dir
-	if board:isEmpty(tilePos) and not self.moving then
-		if (self.facingRight and dir == VEC_LEFT) or (not self.facingRight and dir == VEC_RIGHT) then
-			self:flip()
-		end
 
-		MoveCommand(self, dir, false):execute()
+	if not self.moving then
+		print(self.name.." moving to "..tilePos.x..","..tilePos.y)
+		if (self.facingRight and dir == VEC_LEFT) or (not self.facingRight and dir == VEC_RIGHT) then
+				self:flip()
+		end
+		if board:isEmpty(tilePos) then	
+			MoveCommand(self, dir, false):execute()
+		elseif board:entityAt(tilePos) then
+			local e = board:entityAt(tilePos)
+			if e.edible and self.name == "bigboy" then	
+				if self.abilities[1]  ~= nil then
+					Ability(self.abilities[1], self):castTarget(e)
+					MoveCommand(self, dir, false):execute()
+				end		
+			end
+		end
 	end
 end
 
@@ -161,6 +191,9 @@ function Entity:kill()
 		enemiesKilled = enemiesKilled + 1
 	end
 
+	if self.name == "bigboy" then
+		gameState.switch(MenuState)
+	end
 	-- board.tiles[self.tilePos.y][self.tilePos.x].baseColor = {0,0,0}
 	-- board.tiles[self.tilePos.y][self.tilePos.x].color = {0,0,0}
 	board.tiles[self.tilePos.y][self.tilePos.x].entity = nil

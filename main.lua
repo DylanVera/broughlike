@@ -2,7 +2,7 @@ require("src.dependencies")
 
 function love.load()
     love.graphics.setBackgroundColor(0,0,0)
-    love.window.setTitle("Tiny X-Com")
+    love.window.setTitle("Imaginary Friends")
 
     math.randomseed(os.time())
     love.math.setRandomSeed(os.time())
@@ -30,21 +30,17 @@ end
 
 function love.update(dt)
 	flux.update(dt)
-	timer.update(dt)
+	timer.update(dt) 
 	screen:update(dt)
     
-    -- gStateStack:update(dt)
-
+    --gStateStack:update(dt)
 end
 
-function love.draw()
-    -- push:start()
-
+function love.draw()    
     suit.draw()
 	screen:apply()
-    -- push:finish()
+    
     -- gStateStack:render()
-
 end
 
 function love.resize(w, h)

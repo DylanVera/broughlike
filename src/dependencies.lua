@@ -60,8 +60,8 @@ gFonts = {
     ['large'] = love.graphics.newFont('graphics/fonts/font.ttf', 32)
 }
 
-gSounds = {
-    ['music'] = love.audio.newSource('audio/music.mp3'),
-    ['hit-enemy'] = love.audio.newSource('audio/hit_enemy.wav'),
-    ['hit-healer'] = love.audio.newSource('audio/hit_player.wav')
-}
+-- gSounds = {
+--     ['music'] = love.audio.newSource('audio/music.mp3'),
+--     ['hit-smallson'] = love.audio.newSource('audio/hit_enemy.wav'),
+--     ['hit-healer'] = love.audio.newSource('audio/hit_player.wav')
+-- }

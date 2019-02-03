@@ -17,7 +17,7 @@ end
 
 function ActionBar:draw()
 	for i=1,MAX_ACTIONBAR_SIZE do
-		love.graphics.setColor(128,128,128)
+		love.graphics.setColor(0.5, 0.5, 0.5)
 		love.graphics.rectangle("fill", self.position.x + (i - 1) * TILE_SIZE, self.position.y, TILE_SIZE, TILE_SIZE)
 		love.graphics.setColor(0,0,0)
 		love.graphics.rectangle("line", self.position.x + (i - 1) * TILE_SIZE, self.position.y, TILE_SIZE, TILE_SIZE)
@@ -31,7 +31,7 @@ function ActionBar:update(dt)
 		if suit.Button(i, self.position.x + (i - 1), self.position.y, TILE_SIZE, TILE_SIZE).hit then
 	    	local neighbors = board:getNeighbors(healer.tilePos)
 	    	for i,n in ipairs(neighbors) do
-	    		n.color = {255,64,96}
+	    		n.color = {1,0.25,0.375}
 	    	end		
     	end
 	end

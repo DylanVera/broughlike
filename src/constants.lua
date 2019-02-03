@@ -15,7 +15,7 @@ MAP_WIDTH = VIRTUAL_WIDTH / TILE_SIZE - 2
 MAP_HEIGHT = math.floor(VIRTUAL_HEIGHT / TILE_SIZE) - 2
 
 MAP_RENDER_OFFSET_X = (VIRTUAL_WIDTH - (9 * TILE_SIZE)) / 2
-MAP_RENDER_OFFSET_Y = ((VIRTUAL_HEIGHT * 0.9) - (9 * TILE_SIZE)) / 2
+MAP_RENDER_OFFSET_Y = (VIRTUAL_HEIGHT - (9 * TILE_SIZE)) / 2
 
 -- --
 -- -- ui rendering offsets
@@ -51,4 +51,9 @@ ALLY_TEAM = 1
 ENEMY_TEAM = 2
 NEUTRAL = 3
 
--- -- tile IDs
+--MAP DATA
+MAP_DATA = {
+			"src/mapOne.map",
+			"src/mapTwo.map",
+			"src/testMap.map"
+		}

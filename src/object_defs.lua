@@ -8,13 +8,13 @@ GAME_OBJECT_DEFS = {
         frame = 2,
         width = TILE_SIZE/3,
         height = TILE_SIZE/3,
-        color = {196,64,196},
+        color = {0.75,0.25,0.75},
     },
     ["food"] = {
         type = "food",
         solid = true,
-        color = {196, 32, 96},
+        color = {0.75, 0.125, 0.375},
         width = TILE_SIZE/4,
         height = TILE_SIZE/4
     }
-}   
+}
